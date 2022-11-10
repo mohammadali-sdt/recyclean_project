@@ -1,0 +1,92 @@
+.card {
+  position: relative;
+  display: flex;
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  width: 25rem;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  &, &:visited, &:active, &:link {
+    text-decoration: none;
+  }
+
+  @include box-shadow();
+
+  &--done {
+    background-color: var(--tertiary-color);
+  }
+
+  &__btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    background-color: var(--success-color);
+    padding: 0.5rem;
+    z-index: 10;
+    transition: all 1s ease;
+  }
+
+  &__icon {
+    display: block;
+    width: 100%;
+    height: 2rem;
+    fill: var(--light-color);
+  }
+
+  &__arrow {
+    width: 100%;
+    height: 2.5rem;
+    @include respond(tab) {
+      height: 3rem;
+    }
+    display: flex;
+
+    &::before {
+      content: "";
+      background: var(--light-color);
+      width: 10px;
+      flex-grow: 1;
+      clip-path: polygon(
+                      0 10px,
+                      calc(100% - 10px) 10px,
+                      calc(100% - 10px) 0,
+                      100% 50%,
+                      calc(100% - 10px) 100%,
+                      calc(100% - 10px) calc(100% - 10px),
+                      0 calc(100% - 10px)
+      );
+    }
+  }
+
+  &:hover &__btn {
+    width: 100%;
+  }
+
+  &__content {
+    width: 85%;
+    padding: 1rem;
+    margin-left: 15%;
+    z-index: 9;
+  }
+
+  &__header {
+    font-family: "Kanit";
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+
+  &__text {
+    font-size: 2.3rem;
+
+    &--address {
+      font-size: 2rem;
+    }
+  }
+}

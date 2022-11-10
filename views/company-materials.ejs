@@ -1,0 +1,27 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main-panel">
+    <%- include('partials/_panel.ejs') %>
+    <% if (!materials.length) { %>
+        <section class="error section-full">
+            <h3 class="error__heading">No material has been registered yet.</h3>
+        </section>
+    <% } else { %>
+        <section class="materials-section section-full">
+            <% materials.forEach(material => { %>
+                <div class="info-card info-card--address">
+                    <h3 class="info-card__title">
+                        Material : <%= material.material %> <br/>
+                        Unit Price : <%= material.unitPrice %>t
+                    </h3>
+                    <div class="info-card__buttons">
+                        <a href="/company/edit/material/<%= material.id %>" class="btn btn--info">Edit</a>
+                        <a data-material="<%= material.id %>" href="javascript:void(0);"
+                           class="btn btn--danger btn--delete">Delete</a>
+                    </div>
+                </div>
+            <% }) %>
+        </section>
+    <% } %>
+</main>
+<%- include('partials/_end.ejs') %>

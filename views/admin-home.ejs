@@ -1,0 +1,32 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main-panel">
+    <%- include('partials/_panel.ejs') %>
+    <% if (!orders.length) { %>
+        <section class="error section-full">
+            <h3 class="error__heading">No order has been registered yet.</h3>
+        </section>
+    <% } else { %>
+        <section class="orders orders--panel section-full">
+            <% orders.forEach((order, i) => { %>
+                <a href="/order/<%= order._id %>" target="_blank" class="card
+                    <% if (order.status === "done") { %>
+                        card--done
+                    <% } %>
+    ">
+                    <div class="card__btn">
+                        <i class="card__arrow"></i>
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__header">Order #<%= i + 1 %></h3>
+                        <p class="card__text">Status: <%= order.status %></p>
+                        <p class="card__text">Price: <%= order.price %></p>
+                        <p class="card__text card__text--address"><%= order.address.city[0].toUpperCase() + order.address.city.slice(1) %>
+                            , <%= order.address.street[0].toUpperCase() + order.address.street.slice(1) %></p>
+                    </div>
+                </a>
+            <% }) %>
+        </section>
+    <% } %>
+</main>
+<%- include('partials/_end.ejs') %>

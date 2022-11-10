@@ -1,0 +1,105 @@
+.nav {
+  // display: flex;
+  // align-items: center;
+  // gap: 2rem;
+  // padding: 1rem 1.3rem;
+  // background-color: var(--light-color);
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 2rem;
+    top: 1rem;
+
+    @include respond(phone) {
+      top: 0.5rem;
+    }
+    width: 5rem;
+    margin-left: 2rem;
+    z-index: 90;
+    border-radius: 100%;
+    @include box-shadow();
+    background-color: var(--dark-color);
+    a {
+      padding: 1rem;
+      width: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__theme {
+    top: 0.5rem;
+    right: 8rem;
+    z-index: 90;
+    @include box-shadow();
+    background-color: var(--dark-color);
+    // position: static;
+    // top: 0;
+    // right: 0;
+    // margin-left: auto;
+    // svg {
+    //   fill: var(--success-color);
+    // }
+    // &:hover {
+    //   background-color: rgba($color: var(--dark-color), $alpha: 0.1);
+    // }
+    // @include respond(tab) {
+    //   background-color: transparent;
+    //   box-shadow: none;
+    //   svg {
+    //     fill: var(--success-color);
+    //   }
+    // }
+  }
+  &__burger {
+    position: fixed;
+    right: 2rem;
+    top: 0.5rem;
+    z-index: 90;
+    border-radius: 100%;
+    @include box-shadow();
+    background-color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    &:hover .nav__burger-icon {
+      fill: var(--success-color-3);
+    }
+  }
+  &__burger-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    fill: var(--success-color);
+  }
+  &__burger-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    &:hover {
+      span {
+        &:first-child {
+          margin-bottom: 0.3rem;
+        }
+        &:last-child {
+          margin-top: 0.3rem;
+        }
+      }
+    }
+    span {
+      width: 3.8rem;
+      border: 0.2rem solid var(--success-color);
+      border-radius: 3rem;
+      background-color: var(--success-color);
+      transition: all 0.2s ease-out;
+    }
+  }
+}

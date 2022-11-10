@@ -1,0 +1,33 @@
+.info-card {
+  width: 26rem;
+  padding: 1.5rem;
+  background-color: var(--success-color);
+  border-radius: 0.5rem;
+  @include box-shadow();
+
+  &--add,
+  &--single {
+    .info-card__buttons {
+      justify-content: center;
+    }
+    .info-card__title {
+    }
+  }
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--light-color);
+  }
+
+  &__title {
+    font-family: "Kanit";
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  &__buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

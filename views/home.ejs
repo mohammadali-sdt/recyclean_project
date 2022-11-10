@@ -1,0 +1,34 @@
+<%- include('partials/_head.ejs') %>
+<header>
+    <div class="theme">
+        <svg class="theme__icon theme__icon--dark">
+            <use href="/src/img/sprite.svg#icon-dark"></use>
+        </svg>
+        <svg class="theme__icon theme__icon--light">
+            <use href="/src/img/sprite.svg#icon-light"></use>
+        </svg>
+    </div>
+</header>
+<main class="main">
+    <section class="main-logo section-dark">
+        <img
+                src="/src/img/logo.png"
+                alt="RecyClean Logo"
+                class="main-logo__logo"
+        />
+    </section>
+    <section class="hero section-light">
+        <h1 class="hero__title">RecyClean</h1>
+        <p class="hero__content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            accusantium natus animi molestiae, placeat praesentium reprehenderit,
+            repudiandae incidunt ducimus, deleniti aut. Alias blanditiis fugiat,
+            esse consectetur praesentium officia iure adipisci.
+        </p>
+        <div class="hero__links">
+            <a href="/signup" class="btn btn--primary">SignUp</a>
+            <a href="/login" class="btn btn--secondary">Login</a>
+        </div>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

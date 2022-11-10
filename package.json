@@ -1,0 +1,33 @@
+{
+  "name": "recyclean",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "watch:js": "parcel watch ./public/src/js/index.js --dist-dir ./public/src/js/bundle"
+  },
+  "author": "MohammadAli Sedaghat",
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
+    "nodemon": "^2.0.19",
+    "parcel": "^2.7.0",
+    "path-browserify": "^1.0.1",
+    "prettier": "2.7.1",
+    "process": "^0.11.10",
+    "util": "^0.12.4"
+  }
+}

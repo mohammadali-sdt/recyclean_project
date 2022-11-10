@@ -1,0 +1,103 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/order.svg"
+                    alt="RecyClean Add Address"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--submit-order" id="submitOrderForm">
+            <h2 class="form__heading">Submit Order</h2>
+            <div class="form__field">
+                <select name="paper" class="form__select">
+                    <option value="" selected disabled hidden>Paper</option>
+                    <% materials.forEach(material => { %>
+                        <% if (material.material === 'paper') { %>
+                            <option value="<%= material.id %>"><%= material.company.username %>
+                                - <%= material.unitPrice %>t
+                            </option>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field">
+                <select name="metal" class="form__select">
+                    <option value="" selected disabled hidden>Metal</option>
+                    <% materials.forEach(material => { %>
+                        <% if (material.material === 'metal') { %>
+                            <option value="<%= material.id %>"><%= material.company.username %>
+                                - <%= material.unitPrice %>t
+                            </option>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field">
+                <select name="plastic" class="form__select">
+                    <option value="" selected disabled hidden>Plastic</option>
+                    <% materials.forEach(material => { %>
+                        <% if (material.material === 'plastic') { %>
+                            <option value="<%= material.id %>"><%= material.company.username %>
+                                - <%= material.unitPrice %>t
+                            </option>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field">
+                <select name="glass" class="form__select">
+                    <option value="" selected disabled hidden>Glass</option>
+                    <% materials.forEach(material => { %>
+                        <% if (material.material === 'glass') { %>
+                            <option value="<%= material.id %>"><%= material.company.username %>
+                                - <%= material.unitPrice %>t
+                            </option>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field">
+                <select name="electric" class="form__select">
+                    <option value="" selected disabled hidden>Electric</option>
+                    <% materials.forEach(material => { %>
+                        <% if (material.material === 'electric') { %>
+                            <option value="<%= material.id %>"><%= material.company.username %>
+                                - <%= material.unitPrice %>t
+                            </option>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" id="next-btn">
+                    Next
+                </button>
+            </div>
+
+            <div class="form__field form__field--hidden">
+                <select name="address" required class="form__select">
+                    <option value="" selected disabled hidden>Address</option>
+                    <% userAddresses.forEach(address => { %>
+                        <option value="<%= address.id %>">
+                            <%= address.city %>, <%= address.street %>, <%= address.plaque %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field form__field--hidden">
+                <button class="form__btn btn btn--primary" id="prev-btn">
+                    Back
+                </button>
+                <button class="form__btn btn btn--primary" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

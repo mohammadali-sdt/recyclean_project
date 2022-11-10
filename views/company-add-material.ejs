@@ -1,0 +1,46 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/add-material.svg"
+                    alt="RecyClean Cash Money"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--add-material" id="addMaterialForm">
+            <h2 class="form__heading">Add Material</h2>
+            <div class="form__field">
+                <select name="material" class="form__select" required>
+                    <option value="none" selected disabled hidden>
+                        Select Material Type
+                    </option>
+                    <option value="paper">Paper</option>
+                    <option value="metal">Metal</option>
+                    <option value="plastic">Plastic</option>
+                    <option value="glass">Glass</option>
+                    <option value="electric">Electric</option>
+                </select>
+            </div>
+            <div class="form__field">
+                <input
+                        name="unitPrice"
+                        type="text"
+                        class="form__input"
+                        placeholder="Unit Price in Toman"
+                        required
+                />
+            </div>
+
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Add
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

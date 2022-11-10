@@ -1,0 +1,33 @@
+.main-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__logo {
+    width: 40rem;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  &__title {
+    font-size: 8rem;
+  }
+  &__content {
+    padding: 0 5rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    @include respond(tab) {
+      text-align: center;
+    }
+  }
+  &__links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}

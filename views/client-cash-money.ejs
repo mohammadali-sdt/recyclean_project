@@ -1,0 +1,43 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/cash.svg"
+                    alt="RecyClean Cash Money"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--cash-money" id="cashMoneyForm">
+            <h2 class="form__heading">Cash Money</h2>
+            <div class="form__field">
+                <input
+                        name="card"
+                        type="text"
+                        class="form__input"
+                        placeholder="Credit Card"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="money"
+                        type="text"
+                        class="form__input"
+                        placeholder="Cash in Toman"
+                        required
+                />
+            </div>
+
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Cash
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

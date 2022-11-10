@@ -1,0 +1,22 @@
+.material {
+  display: flex;
+  gap: 2rem;
+  width: 50rem;
+  background-color: var(--success-color);
+  border-radius: 0.5rem;
+  @include box-shadow();
+  padding: 2rem;
+  color: var(--dark-color);
+  font-size: 2rem;
+
+  @include respond(tab) {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @include respond(phone) {
+    align-items: center;
+    font-weight: 400;
+  }
+}

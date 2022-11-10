@@ -1,0 +1,35 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/deliver-order.svg"
+                    alt="RecyClean Add Address"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--deliver-order" id="deliverOrderForm" data-order="<%= order.id %>">
+            <h2 class="form__heading">Deliver Order</h2>
+            <% order.materials.forEach(matDoc => { %>
+                <div class="form__field">
+                    <input
+                            name="<%= matDoc.material.material %>"
+                            type="text"
+                            class="form__input"
+                            required
+                            placeholder="<%= matDoc.material.material[0].toUpperCase() + matDoc.material.material.slice(1) %>"
+                    />
+                </div>
+            <% }) %>
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Deliver
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

@@ -1,0 +1,66 @@
+<%- include('partials/_head.ejs') %>
+<header>
+    <div class="theme">
+        <svg class="theme__icon theme__icon--dark">
+            <use href="/src/img/sprite.svg#icon-dark"></use>
+        </svg>
+        <svg class="theme__icon theme__icon--light">
+            <use href="/src/img/sprite.svg#icon-light"></use>
+        </svg>
+    </div>
+</header>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/address.svg"
+                    alt="RecyClean Add Address"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--add-address" id="addAddressForm">
+            <h2 class="form__heading">Address</h2>
+            <% if (message) { %>
+                <p style="color:var(--danger-color)" class="alert__message"><%= message %></p>
+            <% } %>
+            <div class="form__field">
+                <input
+                        name="city"
+                        type="text"
+                        class="form__input"
+                        placeholder="City"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="street"
+                        type="text"
+                        class="form__input"
+                        placeholder="Street"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="plaque"
+                        type="text"
+                        class="form__input"
+                        placeholder="Plaque"
+                        required
+                />
+            </div>
+            <% if (redirect) { %>
+                <input type="hidden" value="<%= redirect %>" name="redirect">
+            <% } %>
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Add
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

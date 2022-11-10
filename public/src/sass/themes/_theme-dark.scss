@@ -1,0 +1,67 @@
+body.dark-theme {
+  color: var(--light-color);
+
+  .section-light,
+  .section-dark,
+  .section-full {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+  }
+
+  .btn--primary {
+    color: var(--dark-color);
+
+    &:hover {
+      color: var(--light-color);
+    }
+  }
+
+  // nav {
+  //   background-color: var(--dark-color);
+  // }
+  input,
+  select {
+    background-color: transparent;
+    color: var(--light-color);
+  }
+
+  option {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+  }
+
+  a,
+  a:link,
+  a:visited,
+  a:active {
+    color: var(--light-color);
+  }
+
+  a:hover {
+    color: var(--gray-color);
+  }
+
+  .btn--secondary {
+    background-color: transparent;
+    box-shadow: none;
+    border: 3px solid var(--success-color);
+
+    &:hover {
+      background-color: var(--success-color);
+      color: var(--dark-color);
+      border: 3px solid var(--success-color);
+    }
+  }
+
+  .theme {
+    .theme__icon {
+      &--light {
+        display: block;
+      }
+
+      &--dark {
+        display: none;
+      }
+    }
+  }
+}

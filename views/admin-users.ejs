@@ -1,0 +1,38 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main-panel">
+    <%- include('partials/_panel.ejs') %>
+    <% if (!users.length) { %>
+        <section class="error section-full">
+            <h3 class="error__heading">No User has been registered yet.</h3>
+        </section>
+    <% } else { %>
+        <section class="users section-full">
+            <% users.forEach(user => { %>
+                <div class="info-card info-card--address info-card--single">
+                    <h3 class="info-card__title">
+                        <div class="user-profile">
+                            <div class="user-profile__img">
+                                <img
+                                        src="/src/img/user-profile-icon-white.svg"
+                                        alt="user icon"
+                                />
+                            </div>
+                            <div class="user-profile__info">
+                                <h4 class="user-profile__username"><%= user.username %></h4>
+                                <% if (user.role === 'client') { %>
+                                    <p class="user-profile__credit">credit: <%= user.credit %>t</p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </h3>
+                    <div class="info-card__buttons">
+                        <a href="javascript:void(0);" data-user="<%= user._id %>"
+                           class="btn btn--danger btn--delete">Delete</a>
+                    </div>
+                </div>
+            <% }) %>
+        </section>
+    <% } %>
+</main>
+<%- include('partials/_end.ejs') %>

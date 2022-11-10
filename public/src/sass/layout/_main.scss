@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+
+  @include respond(tab) {
+    flex-direction: column;
+  }
+}
+
+.main-panel {
+  display: flex;
+  @include respond(phone) {
+    flex-direction: column;
+  }
+}

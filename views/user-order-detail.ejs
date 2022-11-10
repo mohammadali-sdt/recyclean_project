@@ -1,0 +1,79 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main">
+    <section class="order section-full">
+        <div class="order-info">
+            <h3 class="order-info__header">Order</h3>
+            <p class="order-info__status">Status: <%= order.status[0].toUpperCase() + order.status.slice(1) %></p>
+            <time datetime="<%= order.createdAt.getFullYear() %>-<%= order.createdAt.getMonth().toString().padStart(2, "0") %>-<%= order.createdAt.getDate().toString().padStart(2, "0") %>"
+                  class="order-info__date">
+                Date :
+                <%= order.createdAt.getDate() %>
+                <%= Intl.DateTimeFormat('en-US', {
+                    month: "long",
+                    year: "numeric"
+                }).format(order.createdAt) %>
+            </time>
+            <address class="order-info__address">
+                Address :
+                <%= order.address.city[0].toUpperCase() + order.address.city.slice(1) %>,
+                <%= order.address.street[0].toUpperCase() + order.address.street.slice(1) %>,
+                <%= order.address.plaque[0].toUpperCase() + order.address.plaque.slice(1) %>
+            </address>
+            <p class="order-info__address">
+                user: <%= order.client.username %>
+            </p>
+            <p class="order-info__address">
+                phone: <%= order.client.phone %>
+            </p>
+            <p class="order-info__price">Price : <%= order.price === 0 ? "-" : order.price %></p>
+            <% if (user.role === 'delivery' && order.status !== 'done') { %>
+                <a href="/agent/deliver/order/<%= order.id %>" class="btn btn--info order-info__btn">Deliver</a>
+            <% } %>
+            <% if (user.role === 'client' && order.status !== 'done') { %>
+                <a href="javascript:void(0);" id="deleteOrderBtn" data-order="<%= order.id %>"
+                   class="btn btn--danger order-info__btn">Delete</a>
+            <% } %>
+        </div>
+        <div class="materials">
+            <% if (user.role !== "company") { %>
+                <% order.materials.forEach(m => { %>
+                    <div class="material">
+                        <p class="material__data">
+                            Material: <%= m.material.material %>
+                            <br/>
+                            Amount: <%= m.amount === 0 ? '-' : m.amount + " Kg" %>
+                            <br/>
+                            Price: <%= m.amount * m.material.unitPrice === 0 ? "-" : m.amount * m.material.unitPrice + "t" %>
+                        </p>
+                        <p class="material__data">
+                            Company: <%= m.material.company.username %>
+                            <br/>
+                            Unit Price: <%= m.material.unitPrice %>t
+                        </p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <% order.materials.forEach(m => { %>
+                    <% if (m.material.company.id === user.id) { %>
+                        <div class="material">
+                            <p class="material__data">
+                                Material: <%= m.material.material %>
+                                <br/>
+                                Amount: <%= m.amount === 0 ? '-' : m.amount + " Kg" %>
+                                <br/>
+                                Price: <%= m.amount * m.material.unitPrice === 0 ? "-" : m.amount * m.material.unitPrice + "t" %>
+                            </p>
+                            <p class="material__data">
+                                Company: <%= m.material.company.username %>
+                                <br/>
+                                Unit Price: <%= m.material.unitPrice %>t
+                            </p>
+                        </div>
+                    <% } %>
+                <% }) %>
+            <% } %>
+        </div>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

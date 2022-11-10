@@ -1,0 +1,27 @@
+<div class="panel">
+    <div class="user-profile panel__profile">
+        <div class="user-profile__img">
+            <img src="/src/img/user-profile-icon.svg" alt="user icon"/>
+        </div>
+        <div class="user-profile__info">
+            <h4 class="user-profile__username"><%= user.username %></h4>
+            <% if(user.role === 'client') { %>
+                <p class="user-profile__credit"><%= user.credit %>t</p>
+            <% } %>
+        </div>
+    </div>
+    <div class="panel__links">
+        <% if (user.role === "admin") { %>
+            <%- include('_admin-panel-links.ejs') %>
+        <% } %>
+        <%- include('_user-panel-links.ejs') %>
+        <% if (user.role === 'client') { %>
+            <%- include('_client-panel-links.ejs') %>
+        <% } else if (user.role === 'company') { %>
+            <%- include('_company-panel-links.ejs') %>
+        <% } else if (user.role === 'delivery') { %>
+            <%- include('_agent-panel-links.ejs') %>
+        <% } %>
+
+    </div>
+</div>

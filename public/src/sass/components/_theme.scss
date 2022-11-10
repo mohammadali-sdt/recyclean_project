@@ -1,0 +1,36 @@
+.theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  border-radius: 100%;
+  background-color: var(--dark-color);
+  @include box-shadow();
+  // @include respond(tab) {
+  //   background-color: var(--success-color);
+  //   @include box-shadow();
+  // }
+  &:hover .theme__icon {
+    fill: var(--success-color-3);
+  }
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--success-color);
+    cursor: pointer;
+    &--light {
+      display: none;
+      // @include respond(tab) {
+      //   fill: var(--dark-color);
+      // }
+    }
+    &--dark {
+      // @include respond(tab) {
+      //   fill: var(--dark-color);
+      // }
+    }
+  }
+}

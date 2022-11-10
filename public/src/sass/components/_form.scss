@@ -1,0 +1,178 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  text-align: center;
+
+  &--signup,
+  &--add-address {
+    gap: 2rem;
+    @include respond(phone) {
+      .form__heading {
+        font-size: 6rem;
+      }
+    }
+  }
+
+  &--cash-money {
+    .form__heading {
+      font-size: 6rem;
+    }
+  }
+
+  &--profile {
+    gap: 3.5rem;
+
+    .form__btn {
+      &:hover {
+        color: var(--dark-gray-color-2);
+      }
+    }
+  }
+
+  &--add-agent {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    @include respond(tab) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .form__btn {
+      &:hover {
+        color: var(--dark-gray-color-2);
+      }
+    }
+  }
+
+  &--submit-order {
+    gap: 2rem;
+    height: 50rem;
+
+    .form__heading {
+      font-size: 6rem;
+      @include respond(phone) {
+        font-size: 3.8rem;
+      }
+    }
+  }
+
+  &--deliver-order {
+    margin-top: 1rem;
+    gap: 2rem;
+
+    .form__heading {
+      font-size: 5rem;
+      @include respond(phone) {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  &--add-material {
+    .form__heading {
+      font-size: 5rem;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__heading {
+    word-wrap: break-word;
+    font-size: 8rem;
+    text-transform: uppercase;
+    // margin-bottom: auto;
+  }
+
+  &__field {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+
+    &--hidden {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+
+      input,
+      select,
+      button {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__input,
+  &__select {
+    font-family: "Kanit";
+    font-weight: 400;
+    font-size: 1.8rem;
+    outline: 0;
+    border: 5px solid var(--success-color);
+    border-radius: 0.5rem;
+    color: var(--dark-color);
+    width: 40rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--light-color);
+    opacity: 1;
+    visibility: visible;
+    transition: border, background-color, color, 0.3s ease-in-out;
+
+    &::placeholder {
+      color: rgba($color: var(--dark-gray-color), $alpha: 1);
+      opacity: 0.5;
+    }
+
+    //&:empty{
+    //  border-color: var(--danger-color);
+    //}
+
+    @include respond(phone) {
+      width: 80%;
+    }
+  }
+
+  &__input {
+    &:invalid:focus {
+      border-color: var(--danger-color);
+    }
+
+    &:autofill {
+      //background-color: black;
+    }
+  }
+
+  &__select {
+    &:required:focus {
+      border-color: var(--danger-color);
+    }
+  }
+
+  &__select option {
+    background-color: var(--light-color);
+    color: var(--dark-gray-color);
+  }
+
+  &__btn {
+    color: var(--dark-color);
+
+    &:hover {
+      color: var(--light-color);
+    }
+  }
+
+  &__link {
+    font-size: 1.8rem;
+  }
+}

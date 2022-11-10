@@ -1,0 +1,102 @@
+.section-dark,
+.section-light {
+  width: 50vw;
+  height: 100vh;
+  @include respond(tab) {
+    width: 100vw;
+  }
+}
+
+.section-dark {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+
+  a, a:link, a:visited, a:active {
+    color: var(--light-color);
+  }
+}
+
+.section-light {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.form-container,
+.form-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-full {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  padding-top: 8rem !important;
+}
+
+.orders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-auto-rows: min-content;
+  gap: 2rem;
+  justify-items: center;
+  padding: 5rem;
+  @include respond(phone) {
+    padding: 2rem;
+  }
+
+  &--panel {
+    // margin-left: 30rem;
+    padding: 1rem;
+  }
+}
+
+.personal-info,
+.change-password,
+.addresses, .users, .materials-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  // margin-left: 30rem;
+  padding-bottom: 5rem;
+}
+
+.addresses, .users, .materials-section {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-auto-rows: min-content;
+  gap: 2rem;
+  justify-items: center;
+  @include respond(phobe) {
+    padding: 0;
+    justify-items: stretch;
+  }
+}
+
+.order {
+  display: flex;
+  gap: 5rem;
+  padding: 5rem;
+  @include respond(tab) {
+    justify-content: stretch;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  @include respond(phone) {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.materials {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @include respond(tab) {
+    width: 100%;
+  }
+}

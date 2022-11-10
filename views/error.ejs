@@ -1,0 +1,25 @@
+<%- include('partials/_head.ejs') %>
+<header>
+    <div class="theme">
+        <svg class="theme__icon theme__icon--dark">
+            <use href="/src/img/sprite.svg#icon-dark"></use>
+        </svg>
+        <svg class="theme__icon theme__icon--light">
+            <use href="/src/img/sprite.svg#icon-light"></use>
+        </svg>
+    </div>
+</header>
+<main class="main">
+    <section class="error section-full">
+        <h3 class="error__heading">Error <%= code %> 😨😱</h3>
+        <p class="error__message">
+            <% if (code === 500) { %>
+                Something went wrong try again :(
+            <% } else { %>
+                <%= msg %>
+            <% } %>
+        </p>
+        <a class="error__link" href="/home">Back to Home</a>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

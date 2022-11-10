@@ -1,0 +1,11 @@
+.cover {
+  width: 60%;
+
+  @include respond(phone) {
+    width: 90%;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,36 @@
+@mixin box-shadow($x: 0, $y: 0.3rem, $blur: 0.5rem, $spread: 0, $al: 0.16) {
+  box-shadow: $x $y $blur $spread rgba($color: #000000, $alpha: $al);
+}
+
+@mixin respond($bp) {
+  @if $bp == phone {
+    // 600px
+    @media screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $bp == tab {
+    // 900px
+    @media screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $bp == tab-land {
+    // 1200px
+    @media screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $bp == desktop {
+    // 1800px
+    @media screen and (max-width: 112.5em) {
+      @content;
+    }
+  }
+  @if $bp == big-desktop {
+    // 1800px <
+    @media screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

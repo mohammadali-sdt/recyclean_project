@@ -1,0 +1,46 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/add-material.svg"
+                    alt="RecyClean Cash Money"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--add-material" data-material="<%= material.id %>" id="editMaterialForm">
+            <h2 class="form__heading">Edit Material</h2>
+            <div class="form__field">
+                <select name="material" class="form__select" required>
+                    <% let types = ["paper", "metal", "plastic", "glass", 'electric'] %>
+
+                    <% types.forEach(type => { %>
+                        <% let selected = material.material === type ? "selected" : "" %>
+                        <option <%= selected %>
+                                value="<%= type %>"><%= type[0].toUpperCase() + type.slice(1) %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form__field">
+                <input
+                        name="unitPrice"
+                        type="text"
+                        class="form__input"
+                        placeholder="Unit Price in Toman"
+                        value="<%= material.unitPrice %>"
+                        required
+                />
+            </div>
+
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Edit
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

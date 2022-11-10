@@ -1,0 +1,60 @@
+<div class="menu">
+    <div class="menu__close">
+        <a class="menu__link menu__link--close" href="#">
+            <svg class="menu__close-icon">
+                <use xlink:href="/src/img/sprite.svg#icon-times"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="menu__user-profile">
+        <div class="menu__user-img">
+            <img src="/src/img/user-profile-icon.svg" alt="user icon"/>
+        </div>
+        <div class="menu__user-info">
+            <h4 class="menu__username"><%= user.username %></h4>
+            <% if (user.role === "client") { %>
+                <p class="menu__credit">credit: <%= user.credit %>t</p>
+            <% } %>
+        </div>
+    </div>
+    <div class="menu__links">
+        <a class="menu__link" href="/home">Home</a>
+        <% if (user.role === "client") { %>
+            <%- include('_client-links.ejs') %>
+        <% } else if (user.role === "company") { %>
+            <%- include('_company-links.ejs') %>
+        <% } else if (user.role === 'delivery') { %>
+            <%- include('_delivery-links.ejs') %>
+        <% } %>
+        <a class="menu__link" href="/panel">Profile</a>
+        <a class="menu__link" href="javascript:void(0);" id="logout">Logout</a>
+    </div>
+</div>
+<header class="header">
+    <nav class="nav">
+        <div class="logo nav__logo">
+            <a title="RecyClean" class="logo__link" href="/">
+                <img
+                        src="/src/img/logo.png"
+                        alt="RecyClean logo"
+                        class="logo__img"
+                />
+            </a>
+        </div>
+        <div class="theme nav__theme">
+            <svg class="theme__icon theme__icon--dark">
+                <use href="/src/img/sprite.svg#icon-dark"></use>
+            </svg>
+            <svg class="theme__icon theme__icon--light">
+                <use href="/src/img/sprite.svg#icon-light"></use>
+            </svg>
+        </div>
+        <div class="nav__burger">
+            <a class="nav__burger-link" href="#">
+                <svg class="nav__burger-icon">
+                    <use href="/src/img/sprite.svg#icon-menu"></use>
+                </svg>
+            </a>
+        </div>
+    </nav>
+</header>

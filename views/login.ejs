@@ -1,0 +1,52 @@
+<%- include('partials/_head.ejs') %>
+<header>
+    <div class="theme">
+        <svg class="theme__icon theme__icon--dark">
+            <use href="/src/img/sprite.svg#icon-dark"></use>
+        </svg>
+        <svg class="theme__icon theme__icon--light">
+            <use href="/src/img/sprite.svg#icon-light"></use>
+        </svg>
+    </div>
+</header>
+<main class="main">
+    <section class="form-cover section-light">
+        <div class="cover">
+            <img
+                    src="/src/img/authentication.svg"
+                    alt="RecyClean Login"
+                    class="cover__img"
+            />
+        </div>
+    </section>
+    <section class="form-container section-dark">
+        <form class="form form--login" id="loginForm">
+            <h2 class="form__heading">Login</h2>
+            <div class="form__field">
+                <input
+                        name="username"
+                        type="text"
+                        class="form__input"
+                        placeholder="Username"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="password"
+                        type="password"
+                        class="form__input"
+                        placeholder="Password"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Login
+                </button>
+                <a href="/signup" class="form__link">Have not An Account ?</a>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

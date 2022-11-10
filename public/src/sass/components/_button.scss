@@ -1,0 +1,65 @@
+.btn,
+.btn:visited,
+.btn:active,
+.btn:link {
+  outline: 0;
+  cursor: pointer;
+  font-family: "Kanit";
+  font-weight: 300;
+  font-size: 1.8rem;
+  width: 10rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  border: 3px solid transparent;
+  text-decoration: none;
+  text-align: center;
+  @include box-shadow();
+}
+.btn--primary,
+.btn--primary:visited,
+.btn--primary:active,
+.btn--primary:link {
+  background-color: var(--success-color);
+  color: var(--light-color);
+  &:hover {
+    background-color: transparent;
+    border-color: var(--success-color);
+    color: var(--dark-color);
+  }
+}
+
+.btn--secondary,
+.btn--secondary:visited,
+.btn--secondary:active,
+.btn--secondary:link {
+  background-color: var(--dark-color);
+  color: var(--success-color);
+  &:hover {
+    background-color: transparent;
+    border-color: var(--dark-color);
+    color: var(--dark-color);
+  }
+}
+.btn--info,
+.btn--info:visited,
+.btn--info:active,
+.btn--info:link {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  &:hover {
+    background-color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+  }
+}
+
+.btn--danger,
+.btn--danger:visited,
+.btn--danger:active,
+.btn--danger:link {
+  background-color: var(--danger-color);
+  color: var(--light-color);
+  &:hover {
+    background-color: var(--danger-color-2);
+    border-color: var(--danger-color-2);
+  }
+}

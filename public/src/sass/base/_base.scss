@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+* {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+:root {
+  font-size: 62.5%; // 1rem == 10px
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab) {
+    font-size: 50%;
+  }
+
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Martel";
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  text-decoration: underline;
+  font-size: 1.6rem;
+  color: var(--dark-color);
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--gray-color);
+}

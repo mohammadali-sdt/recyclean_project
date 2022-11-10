@@ -1,0 +1,55 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main-panel">
+    <%- include('partials/_panel.ejs') %>
+    <section class="personal-info section-full">
+        <form class="form form--profile" id="userProfileForm">
+            <div class="form__field">
+                <input
+                        name="username"
+                        type="text"
+                        class="form__input"
+                        placeholder="Username"
+                        value="<%= user.username %>"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="firstname"
+                        type="text"
+                        class="form__input"
+                        placeholder="First Name"
+                        value="<%= user.firstname %>"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="lastname"
+                        type="text"
+                        class="form__input"
+                        placeholder="Last Name"
+                        value="<%= user.lastname %>"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <input
+                        name="phone"
+                        type="text"
+                        class="form__input"
+                        placeholder="Phone"
+                        value="<%= user.phone %>"
+                        required
+                />
+            </div>
+            <div class="form__field">
+                <button class="form__btn btn btn--primary" type="submit">
+                    Edit
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>

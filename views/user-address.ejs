@@ -1,0 +1,41 @@
+<%- include('partials/_head.ejs') %>
+<%- include('partials/_menu-header.ejs') %>
+<main class="main-panel">
+    <%- include('partials/_panel.ejs') %>
+    <section class="addresses section-full">
+        <% if (user.role === 'client') { %>
+            <% addresses.forEach(address => { %>
+                <div class="info-card info-card--address">
+                    <h3 class="info-card__title"><%= address.city[0].toUpperCase() + address.city.slice(1) %>
+                        , <%= address.street[0].toUpperCase() + address.street.slice(1) %>,
+                        <%= address.plaque[0].toUpperCase() + address.plaque.slice(1) %></h3>
+                    <div class="info-card__buttons">
+                        <a href="/client/edit/address/<%= address.id %>" class="btn btn--info">Edit</a>
+                        <a href="javascript:void(0);" data-address="<%= address.id %>"
+                           class="btn btn--danger btn--delete">Delete</a>
+                    </div>
+                </div>
+            <% }) %>
+            <div class="info-card info-card--add">
+                <h3 class="info-card__title">
+                    <svg class="info-card__icon">
+                        <use href="/src/img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </h3>
+                <div class="info-card__buttons">
+                    <a href="/client/add/address" class="btn btn--info">Add</a>
+                </div>
+            </div>
+        <% } else if (user.role === 'delivery') { %>
+            <div class="info-card info-card--address info-card--single">
+                <h3 class="info-card__title"><%= address.city[0].toUpperCase() + address.city.slice(1) %>
+                    , <%= address.street[0].toUpperCase() + address.street.slice(1) %>,
+                    <%= address.plaque[0].toUpperCase() + address.plaque.slice(1) %></h3>
+                <div class="info-card__buttons">
+                    <a href="/agent/edit/address" class="btn btn--info">Edit</a>
+                </div>
+            </div>
+        <% } %>
+    </section>
+</main>
+<%- include('partials/_end.ejs') %>
